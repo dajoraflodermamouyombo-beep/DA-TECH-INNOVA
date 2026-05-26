@@ -6,620 +6,218 @@
 <title>Datech Innova – Incubateurs Néonatals Intelligents</title>
 
 <style>
-    body {
-
-
-
-
-
-/* DARK MODE AUTOMATIQUE */
-@media (prefers-color-scheme: dark) {
-    body {
-        background-color: #111;
-        color: #e6e6e6;
-    }
-    header {
-        background-color: #1a1a1a;
-    }
-    nav a {
-        color: #e6e6e6;
-    }
-    .feature-box {
-        background-color: #1a1a1a;
-        color: #e6e6e6;
-    }
-    footer {
-        background-color: #222;
-        color: #fff;
-    }
-    .hero {
-        background: linear-gradient(to right, #0a2a43, #14567b);
-    }
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f7f9fc;
+    color: #333;
+    transition: background 0.3s, color 0.3s;
 }
 
+/* DARK MODE */
+body.dark-mode {
+    background: #111;
+    color: #e6e6e6;
+}
 
+header {
+    background: white;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
 
+.logo-title {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
 
+.logo-title img {
+    height: 60px;
+}
 
+nav a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
 
+.hero {
+    background: linear-gradient(to right, #0a4d8c, #1479c9);
+    color: white;
+    text-align: center;
+    padding: 80px 20px;
+}
 
+.hero h2 {
+    font-size: 40px;
+}
 
-        
-        margin: 0;
-        font-family: Arial, sans-serif;
-        background: #f7f9fc;
-        color: #333;
-        transition: background 0.3s, color 0.3s;
-    }
+.hero p {
+    font-size: 20px;
+    max-width: 800px;
+    margin: auto;
+}
 
-    header {
-        background: white;
-        padding: 20px 40px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        position: sticky;
-        top: 0;
-        z-index: 10;
-        transition: background 0.3s, color 0.3s;
-    }
+.slider-container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 40px auto;
+    overflow: hidden;
+    border-radius: 20px;
+}
 
-    header .logo-title {
-        display: flex;
-        align-items: center;
-        gap: 15px;
-    }
+.slider {
+    display: flex;
+    animation: slide 25s linear infinite;
+}
 
-    header .logo-title img {
-        height: 60px;
-    }
+.slider img {
+    width: 100%;
+    max-width: 400px;
+    margin-right: 20px;
+    border-radius: 15px;
+}
 
-    header h1 {
-        color: #0a4d8c;
-        margin: 0;
-        font-size: 24px;
-        font-weight: bold;
-    }
+@keyframes slide {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
 
-    nav a {
-        margin-left: 25px;
-        text-decoration: none;
-        color: #333;
-        font-weight: bold;
-        transition: color 0.3s;
-    }
+.section {
+    padding: 60px 20px;
+    text-align: center;
+}
 
-    /* Hero Section */
-    .hero {
-        display: flex;
-        flex-direction: column;
-        justify-content: center; 
-        align-items: center;
-        text-align: center;
-        background: linear-gradient(to right, #0a4d8c, #1479c9);
-        color: white;
-        height: 600px;
-        overflow: hidden;
-        position: relative;
-        padding: 40px;
-    }
+.section h3 {
+    color: #0a4d8c;
+    font-size: 28px;
+}
 
-    .hero h2 {
-        font-size: 42px;
-        font-weight: bold;
-        z-index: 2;
-        margin-bottom: 15px;
-    }
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
 
-    .hero p {
-        font-size: 22px;
-        z-index: 2;
-        margin-bottom: 30px;
-    }
+.feature-box {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
 
-    /* Slider */
-    .slider-container {
-        width: 100%;
-        max-width: 900px;
-        height: 350px;
-        overflow: hidden;
-        border-radius: 20px;
-        box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-    }
+body.dark-mode .feature-box {
+    background: #1a1a1a;
+    color: #e6e6e6;
+}
 
-    .slider {
-        display: flex;
-        animation: slide 25s linear infinite;
-    }
-
-    .slider img {
-        height: 350px;
-        width: auto;
-        flex-shrink: 0;
-        border-radius: 20px;
-        object-fit: cover;
-        animation: zoom 5s ease-in-out infinite alternate;
-        margin-right: 20px;
-    }
-
-    @keyframes slide {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(-50%); }
-    }
-
-    @keyframes zoom {
-        0% { transform: scale(1); }
-        100% { transform: scale(1.1); }
-    }
-
-    /* Section présentation */
-    .section {
-        padding: 70px 40px;
-        text-align: center;
-    }
-
-    .section h3 {
-        font-size: 30px;
-        color: #0a4d8c;
-    }
-
-    .section p {
-        font-size: 18px;
-        width: 75%;
-        margin: auto;
-        margin-top: 20px;
-        line-height: 1.6;
-    }
-
-    /* Section produit & autres */
-    .features {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 25px;
-        margin-top: 40px;
-    }
-
-    .feature-box {
-        background: white;
-        padding: 25px;
-        border-radius: 15px;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-        text-align: left;
-        transition: background 0.3s, color 0.3s;
-    }
-
-    .feature-box h4 {
-        color: #0a4d8c;
-        margin-bottom: 10px;
-    }
-
-    /* Formulaire Nous contacter */
-    form input, form textarea, form button {
-        width: 100%;
-        padding: 10px;
-        margin-bottom: 15px;
-        border-radius: 5px;
-        border: 1px solid #ccc;
-    }
-
-    form button {
-        background: #0a4d8c;
-        color: white;
-        border: none;
-        cursor: pointer;
-    }
-
-    footer {
-        background: #0a4d8c;
-        color: white;
-        text-align: center;
-        padding: 20px;
-        margin-top: 50px;
-        transition: background 0.3s, color 0.3s;
-    }
-
-    /* ======= MODE SOMBRE ======= */
-    body.dark-mode {
-        background-color: #111;
-        color: #e6e6e6;
-    }
-
-    body.dark-mode header {
-        background-color: #1a1a1a;
-    }
-
-    body.dark-mode nav a {
-        color: #e6e6e6;
-    }
-
-    body.dark-mode .feature-box {
-        background-color: #1a1a1a;
-        color: #e6e6e6;
-    }
-
-    body.dark-mode footer {
-        background-color: #222;
-        color: #fff;
-    }
-
-    body.dark-mode .hero {
-        background: linear-gradient(to right, #0a2a43, #14567b);
-    }
-
+footer {
+    background: #0a4d8c;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
 </style>
 </head>
 
 <body>
 
-<!-- BOUTON MODE CLAIR / SOMBRE -->
-<button id="theme-toggle" 
-        style="position: fixed; top: 20px; right: 20px; padding: 10px 15px;
-               background: #333; color: #fff; border: none; border-radius: 8px;
-               cursor: pointer; z-index: 999;">
-    🌙 Sombre
+<button id="theme-toggle" style="position:fixed;top:20px;right:20px;padding:10px;">
+🌙
 </button>
 
 <header>
     <div class="logo-title">
-        <img src="DTI.JPG" alt="Logo Datech Innova">
+        <img src="DTI.jpg" alt="logo">
         <h1>DATECH INNOVA</h1>
     </div>
-    <nav>
-        <a href="#">Accueil</a>
-        <a href="#produit">Produit</a>
-        <a href="#apropos">À propos</a>
-        <a href="#temoignages">Témoignages</a>
-        <a href="#partenaires">Partenaires</a>
-        <a href="#faq">FAQ</a>
-        <a href="#contact">Contact</a>
-        <a href="#nouscontacter">Nous contacter</a>
-        <a href="#newsletter">Newsletter</a>
-    </nav>
 </header>
 
 <section class="hero">
     <h2>Innovation pour sauver des vies</h2>
-    <p>Incubateurs néonatals intelligents offrent sécurité, confort et suivi en temps réel aux nouveau-nés, même dans les environnements les plus exigeants.</p>
+    <p>Incubateurs néonatals intelligents pour la surveillance et la sécurité des nouveau-nés.</p>
 
     <div class="slider-container">
         <div class="slider">
-            <img src="INCUBATEUR GOOD1.JPG" alt="Incubateur">
-            <img src="bb.PNG" alt="BB">
-            <img src="app.PNG" alt="Application">
-            <img src="remise.JPG" alt="Remise">
-            <img src="minst.JPG" alt="Ministère">
-            <img src="assise.JPG" alt="Assise">
-            <img src="INCUBATEUR GOOD1.JPG" alt="Incubateur">
-            <img src="bb.PNG" alt="BB">
-            <img src="app.PNG" alt="Application">
-            <img src="remise.JPG" alt="Remise">
-            <img src="minst.JPG" alt="Ministère">
-            <img src="assise.JPG" alt="Assise">
+            <img src="INCUBATEUR BON1.png">
+            <img src="bb.png">
+            <img src="app.png">
+            <img src="remise.jpg">
+            <img src="minst.jpg">
+            <img src="assise.jpg">
+
+            <img src="INCUBATEUR BON1.png">
+            <img src="bb.png">
+            <img src="app.png">
+            <img src="remise.jpg">
+            <img src="minst.jpg">
+            <img src="assise.jpg">
         </div>
     </div>
 </section>
 
-<section class="section" id="apropos">
+<section class="section">
     <h3>Qui sommes-nous ?</h3>
     <p>
-        DATECH INNOVA développe des technologies médicales avancées pour améliorer 
-        la survie des nouveau-nés, grâce à des incubateurs intelligents, connectés et accessibles.
+        DATECH INNOVA développe des incubateurs intelligents pour réduire la mortalité néonatale.
     </p>
-
-<section class="section" id="equipe">
-    <h3>DATECH INNOVA</h3>
-
-    <!-- Historique de la start-up -->
-    <div class="feature-box">
-        <h4>Historique de la start-up</h4>
-        <p>
-            DATECH INNOVA a été fondée en 2022 avec l’objectif de réduire la mortalité néonatale en Afrique centrale 
-            grâce à des incubateurs intelligents, connectés et accessibles. Depuis, nous avons collaboré avec des hôpitaux, ONG et institutions de santé pour déployer nos solutions innovantes.
-        </p>
-    </div>
-
-    <!-- Parcours de la fondatrice -->
-    <div class="feature-box" style="text-align:center; margin-top:30px;">
-        <img src="CEO.JPG" alt="CEO" style="width:150px; border-radius:50%; margin-bottom:15px;">
-        <h4>Ingenieure. Dajora Floderma MOUYOMBO</h4>
-        <p>
-            Fondatrice & CEO, ingénieure en Robotique Industrielle et Intelligence Artificielle diplômée de l'Ecole Nationale Superieure Polytechnique de Douala. Passionnée par l’innovation médicale et la santé néonatale, elle combine expertise scientifique et vision entrepreneuriale.
-        </p>
-    </div>
-
-    <!-- Vision, mission et valeurs -->
-    <div class="feature-box" style="margin-top:30px;">
-        <h4>Vision, Mission et Valeurs</h4>
-        <p><strong>Vision :</strong> Offrir à chaque nouveau-né un accès à un incubateur intelligent et sécurisé.</p>
-        <p><strong>Mission :</strong> Développer et déployer des technologies médicales innovantes pour améliorer la survie des bébés.</p>
-        <p><strong>Valeurs :</strong> Innovation, Accessibilité, Sécurité, Collaboration et Excellence.</p>
-    </div>
-
-    <!-- Membres clés de l’équipe -->
-    <div class="features" style="margin-top:30px;">
-        <div class="feature-box" style="text-align:center;">
-            <img src="TEBOUL.JPG" alt="Membre équipe" style="width:150px; border-radius:50%; margin-bottom:15px;">
-            <h4>Teboul TIBOTA</h4>
-            <p>Responsable technique et développement des incubateurs intelligents.</p>
-        </div>
-
-        <div class="feature-box" style="text-align:center;">
-            <img src="Revaldy.JPG" alt="Membre équipe" style="width:150px; border-radius:50%; margin-bottom:15px;">
-            <h4>Revaldy MOUYOMBO</h4>
-            <p>Chargée de la communication et relations partenaires.</p>
-        </div>
-
-        <div class="feature-box" style="text-align:center;">
-            <img src="yann.JPG" alt="Membre équipe" style="width:150px; border-radius:50%; margin-bottom:15px;">
-            <h4>Yann MAVOUNGOU</h4>
-            <p>Ingénieure qualité et supervision des installations d’incubateurs.</p>
-        </div>
-    </div>
 </section>
 
-</section>
+<section class="section">
+    <h3>Équipe</h3>
 
-<section class="section" id="produit">
-    <h3>Incubateur Néonatal Intelligent</h3>
     <div class="features">
+
         <div class="feature-box">
-            <h4>Régulation température/humidité</h4>
-            <p>Contrôle automatisé et stable pour un environnement optimal.</p>
+            <img src="PDG.jpg" width="120">
+            <h4>Fondatrice</h4>
         </div>
+
         <div class="feature-box">
-            <h4>Photothérapie intégrée</h4>
-            <p>Traitement efficace de l’ictère néonatal.</p>
+            <img src="TEBOUL.jpg" width="120">
+            <h4>Technique</h4>
         </div>
+
         <div class="feature-box">
-            <h4>Surveillance à distance</h4>
-            <p>Suivi via application mobile en temps réel.</p>
+            <img src="Revaldy.jpg" width="120">
+            <h4>Communication</h4>
         </div>
+
         <div class="feature-box">
-            <h4>Analyse prédictive</h4>
-            <p>Prévision des risques grâce à l'IA embarquée.</p>
+            <img src="yann.jpg" width="120">
+            <h4>Qualité</h4>
         </div>
-        <div class="feature-box">
-            <h4>Alarmes intelligentes</h4>
-            <p>Notification immédiate en cas d’anomalie.</p>
-        </div>
-        <div class="feature-box">
-            <h4>Énergie hybride</h4>
-            <p>Fonctionne sur secteur, batterie ou panneaux solaires.</p>
-        </div>
+
     </div>
 </section>
 
-<section class="section" id="temoignages">
-    <h3>Ce que disent nos partenaires</h3>
-    <div class="features">
-        <div class="feature-box">
-            <p>"Grâce aux incubateurs de DATECH INNOVA, nous avons réduit de moitié la mortalité néonatale dans notre hôpital." - Dr. Moussavou</p>
-        </div>
-        <div class="feature-box">
-            <p>"Un produit fiable, intelligent et adapté aux réalités locales." - Ministère de la Santé</p>
-        </div>
-    </div>
+<section class="section">
+    <h3>Produit</h3>
 </section>
 
-<section class="section" id="partenaires">
-    <h3>Nos partenaires</h3>
-    <div class="features">
-        <div class="feature-box">
-    <img src="imex.JPG" alt="IMEX" style="width:100%; max-width:150px;">
-</div>
-
-        <div class="feature-box">
-            <img src="partenaire2.png" alt="Partenaire 2" style="width:100%; max-width:150px;">
-        </div>
-    </div>
-
-</section>
-
-<!-- PARTENAIRES / INVESTISSEURS -->
-<section id="partenariat" style="background:#f7f9fc; padding:60px 20px;">
-  <div style="max-width:1100px; margin:auto;">
-
-    <h2 style="text-align:center; font-size:32px; color:#0a2a43; margin-bottom:10px;">
-      Rejoignez Nos Partenaires & Investisseurs
-    </h2>
-
-    <p style="text-align:center; color:#555; font-size:18px; max-width:800px; margin:0 auto 40px;">
-      Nous collaborons avec des hôpitaux, ONG, ingénieurs biomédicaux, investisseurs, startups et institutions de santé pour déployer des incubateurs néonatals intelligents accessibles et fiables.
-    </p>
-
-    <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:25px;">
-
-      <div style="background:white; width:320px; padding:25px; border-radius:10px; 
-                  box-shadow:0 4px 10px rgba(0,0,0,0.08); text-align:center;">
-        <img src="investisseur.png" alt="Investisseurs"
-             style="width:80px; margin-bottom:15px;">
-        <h3 style="color:#0a2a43; font-size:22px;">Investisseurs</h3>
-        <p style="color:#444; font-size:16px; margin:15px 0;">
-          Soutenez une innovation vitale et scalable en santé néonatale.
-        </p>
-        <a href="#contact"
-           style="display:inline-block; padding:10px 20px; background:#0a2a43; 
-                  color:white; border-radius:5px; text-decoration:none;">
-          Devenir investisseur
-        </a>
-      </div>
-
-      <div style="background:white; width:320px; padding:25px; border-radius:10px; 
-                  box-shadow:0 4px 10px rgba(0,0,0,0.08); text-align:center;">
-        <img src="partenaire-tech.jpg" alt="Partenaires Techniques"
-             style="width:80px; margin-bottom:15px;">
-        <h3 style="color:#0a2a43; font-size:22px;">Partenaires Techniques</h3>
-        <p style="color:#444; font-size:16px; margin:15px 0;">
-          Ingénieurs, développeurs, laboratoires… construisons ensemble un incubateur nouvelle génération.
-        </p>
-        <a href="#contact"
-           style="display:inline-block; padding:10px 20px; background:#0a2a43; 
-                  color:white; border-radius:5px; text-decoration:none;">
-          Collaborer avec nous
-        </a>
-      </div>
-
-      <div style="background:white; width:320px; padding:25px; border-radius:10px; 
-                  box-shadow:0 4px 10px rgba(0,0,0,0.08); text-align:center;">
-        <img src="institution-sante.jpg" alt="Institutions de Santé"
-             style="width:80px; margin-bottom:15px;">
-        <h3 style="color:#0a2a43; font-size:22px;">Institutions de Santé</h3>
-        <p style="color:#444; font-size:16px; margin:15px 0;">
-          Équipez vos structures de solutions néonatales modernes et accessibles.
-        </p>
-        <a href="#contact"
-           style="display:inline-block; padding:10px 20px; background:#0a2a43; 
-                  color:white; border-radius:5px; text-decoration:none;">
-          Devenir partenaire
-        </a>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<section class="section" id="faq">
-    <h3>Questions fréquentes</h3>
-    <div class="features">
-        <div class="feature-box">
-            <h4>Comment fonctionne l’incubateur ?</h4>
-            <p>Il maintient automatiquement température et humidité, et permet un suivi à distance via l’application mobile.</p>
-        </div>
-        <div class="feature-box">
-            <h4>Où peut-on se le procurer ?</h4>
-            <p>Nous livrons directement aux hôpitaux et cliniques partenaires à travers tout le pays.</p>
-        </div>
-    </div>
-</section>
-
-<section class="section" id="contact">
+<section class="section">
     <h3>Contact</h3>
-
-    <p>Email : <strong>datech.innova@gmail.com</strong></p>
-    <p>WhatsApp : <strong>+242 066986623</strong></p>
-
-    <form action="contact.php" method="POST" style="max-width:600px; margin:auto; text-align:left;">
-        <label for="name">Nom :</label>
-        <input type="text" id="name" name="name" placeholder="Votre nom" required>
-
-        <label for="email">Email :</label>
-        <input type="email" id="email" name="email" placeholder="Votre email" required>
-
-        <label for="subject">Sujet :</label>
-        <input type="text" id="subject" name="subject" placeholder="Sujet du message" required>
-
-        <label for="message">Message :</label>
-        <textarea id="message" name="message" placeholder="Votre message" rows="5" required></textarea>
-
-        <button type="submit">Envoyer</button>
-    </form>
-</section>
-
-</section>
-
-<section class="section" id="nouscontacter">
-    <h3>Nous contacter</h3>
-    <p>Vous avez des questions ou souhaitez en savoir plus ? Envoyez-nous un message :</p>
-    <form style="max-width:600px; margin:auto; text-align:left;">
-        <label for="name">Nom :</label>
-        <input type="text" id="name" name="name" placeholder="Votre nom">
-        <label for="email">Email :</label>
-        <input type="email" id="email" name="email" placeholder="Votre email">
-        <label for="message">Message :</label>
-        <textarea id="message" name="message" placeholder="Votre message" rows="5"></textarea>
-        <button type="submit">Envoyer</button>
-    </form>
-</section>
-
-
-    <section class="section" id="newsletter">
-    <h3>Abonnez-vous à notre Newsletter</h3>
-    <p>Recevez toutes nos actualités et innovations directement dans votre boîte mail.</p>
-
-    <!-- Formulaire correct -->
-    <form action="newsletter.php" method="POST" style="max-width:400px; margin:auto; text-align:center;">
-        <input type="email" name="email" placeholder="Votre email" required>
-        <button type="submit">S'abonner</button>
-    </form>
-</section>
-
-
-<!-- ===== NOUVELLES SECTIONS AJOUTÉES ===== -->
-
-<section class="section" id="social">
-    <h3>Suivez-nous</h3>
-    <p>Restez connectés avec DATECH INNOVA sur les réseaux sociaux :</p>
-    <div style="display:flex; justify-content:center; gap:20px; margin-top:20px;">
-        <a href="https://www.facebook.com/DatechInnova" target="_blank">
-            <img src="fb.png" alt="Facebook" style="width:50px;">
-        </a>
-        <a href="https://www.linkedin.com/company/datechinnova/" target="_blank">
-            <img src="in.JPG" alt="LinkedIn" style="width:50px;">
-        </a>
-        <a href="https://www.instagram.com/datech_innova" target="_blank">
-            <img src="inst.png" alt="Instagram" style="width:50px;">
-        </a>
-        <a href="https://wa.me/242066986623" target="_blank">
-            <img src="whatsapp.png" alt="WhatsApp" style="width:50px;">
-        </a>
-    </div>
-    <p style="margin-top:15px;">Cliquez sur le bouton WhatsApp pour nous contacter directement :</p>
-    <a href="https://wa.me/242066986623" target="_blank" 
-       style="display:inline-block; padding:10px 20px; background:#25D366; color:white; 
-              border-radius:5px; text-decoration:none; font-weight:bold;">💬 WhatsApp Direct</a>
-</section>
-
-<section class="section" id="actualites">
-    <h3>Actualités & Médias</h3>
-
-    <div class="features">
-        <div class="feature-box">
-            <h4>Peck Africa</h4>
-            <p>Couverture de nos incubateurs intelligents dans les hôpitaux africains.</p>
-        </div>
-
-        <div class="feature-box">
-            <h4>Liquidink</h4>
-            <p>Présentation technique de nos solutions innovantes pour les nouveau-nés.</p>
-        </div>
-
-        <div class="feature-box">
-            <h4>Publication scientifique</h4>
-            <p>Étude sur l’impact des incubateurs intelligents sur la survie néonatale.</p>
-        </div>
-
-        <div class="feature-box">
-            <h4>Événements et Challenges</h4>
-            <p>Participation à des salons technologiques, compétitions et hackathons sur la santé néonatale.</p>
-        </div>
-    </div>
 </section>
 
 <footer>
-    © 2025 DATECH INNOVA – Tous droits réservés
+    © 2025 DATECH INNOVA
 </footer>
 
-<!-- ====== SCRIPT MODE CLAIR / SOMBRE ====== -->
 <script>
-const toggleBtn = document.getElementById("theme-toggle");
-const body = document.body;
+const btn = document.getElementById("theme-toggle");
 
-if (localStorage.getItem("theme") === "dark") {
-    body.classList.add("dark-mode");
-    toggleBtn.textContent = "☀️ Clair";
-}
-
-toggleBtn.addEventListener("click", () => {
-    body.classList.toggle("dark-mode");
-    if (body.classList.contains("dark-mode")) {
-        toggleBtn.textContent = "☀️ Clair";
-        localStorage.setItem("theme", "dark");
-    } else {
-        toggleBtn.textContent = "🌙 Sombre";
-        localStorage.setItem("theme", "light");
-    }
-});
+btn.onclick = () => {
+    document.body.classList.toggle("dark-mode");
+};
 </script>
 
 </body>
