@@ -6,18 +6,38 @@
 <title>Datech Innova – Incubateurs Néonatals Intelligents</title>
 
 <style>
-body {
+    body {
+
+    /* DARK MODE AUTOMATIQUE */
+    @media (prefers-color-scheme: dark) {
+        body {
+            background-color: #111;
+            color: #e6e6e6;
+        }
+        header {
+            background-color: #1a1a1a;
+        }
+        nav a {
+            color: #e6e6e6;
+        }
+        .feature-box {
+            background-color: #1a1a1a;
+            color: #e6e6e6;
+        }
+        footer {
+            background-color: #222;
+            color: #fff;
+        }
+        .hero {
+            background: linear-gradient(to right, #0a2a43, #14567b);
+        }
+    }
+
     margin: 0;
     font-family: Arial, sans-serif;
     background: #f7f9fc;
     color: #333;
     transition: background 0.3s, color 0.3s;
-}
-
-/* DARK MODE */
-body.dark-mode {
-    background: #111;
-    color: #e6e6e6;
 }
 
 header {
@@ -30,48 +50,70 @@ header {
     position: sticky;
     top: 0;
     z-index: 10;
+    transition: background 0.3s, color 0.3s;
 }
 
-.logo-title {
+header .logo-title {
     display: flex;
     align-items: center;
     gap: 15px;
 }
 
-.logo-title img {
+header .logo-title img {
     height: 60px;
 }
 
-nav a {
-    margin-left: 20px;
-    text-decoration: none;
-    color: #333;
+header h1 {
+    color: #0a4d8c;
+    margin: 0;
+    font-size: 24px;
     font-weight: bold;
 }
 
+nav a {
+    margin-left: 25px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+/* Hero Section */
 .hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     background: linear-gradient(to right, #0a4d8c, #1479c9);
     color: white;
-    text-align: center;
-    padding: 80px 20px;
+    height: 600px;
+    overflow: hidden;
+    position: relative;
+    padding: 40px;
 }
 
 .hero h2 {
-    font-size: 40px;
+    font-size: 42px;
+    font-weight: bold;
+    z-index: 2;
+    margin-bottom: 15px;
 }
 
 .hero p {
-    font-size: 20px;
-    max-width: 800px;
-    margin: auto;
+    font-size: 22px;
+    z-index: 2;
+    margin-bottom: 30px;
 }
 
+/* Slider */
 .slider-container {
-    width: 90%;
-    max-width: 1000px;
-    margin: 40px auto;
+    width: 100%;
+    max-width: 900px;
+    height: 350px;
     overflow: hidden;
     border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
 }
 
 .slider {
@@ -80,10 +122,13 @@ nav a {
 }
 
 .slider img {
-    width: 100%;
-    max-width: 400px;
+    height: 350px;
+    width: auto;
+    flex-shrink: 0;
+    border-radius: 20px;
+    object-fit: cover;
+    animation: zoom 5s ease-in-out infinite alternate;
     margin-right: 20px;
-    border-radius: 15px;
 }
 
 @keyframes slide {
@@ -91,33 +136,63 @@ nav a {
     100% { transform: translateX(-50%); }
 }
 
+@keyframes zoom {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.1); }
+}
+
 .section {
-    padding: 60px 20px;
+    padding: 70px 40px;
     text-align: center;
 }
 
 .section h3 {
+    font-size: 30px;
     color: #0a4d8c;
-    font-size: 28px;
+}
+
+.section p {
+    font-size: 18px;
+    width: 75%;
+    margin: auto;
+    margin-top: 20px;
+    line-height: 1.6;
 }
 
 .features {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    margin-top: 30px;
+    gap: 25px;
+    margin-top: 40px;
 }
 
 .feature-box {
     background: white;
-    padding: 20px;
+    padding: 25px;
     border-radius: 15px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    text-align: left;
+    transition: background 0.3s, color 0.3s;
 }
 
-body.dark-mode .feature-box {
-    background: #1a1a1a;
-    color: #e6e6e6;
+.feature-box h4 {
+    color: #0a4d8c;
+    margin-bottom: 10px;
+}
+
+form input, form textarea, form button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+form button {
+    background: #0a4d8c;
+    color: white;
+    border: none;
+    cursor: pointer;
 }
 
 footer {
@@ -125,99 +200,209 @@ footer {
     color: white;
     text-align: center;
     padding: 20px;
+    margin-top: 50px;
+}
+
+body.dark-mode {
+    background-color: #111;
+    color: #e6e6e6;
+}
+
+body.dark-mode header {
+    background-color: #1a1a1a;
+}
+
+body.dark-mode nav a {
+    color: #e6e6e6;
+}
+
+body.dark-mode .feature-box {
+    background-color: #1a1a1a;
+    color: #e6e6e6;
+}
+
+body.dark-mode footer {
+    background-color: #222;
 }
 </style>
 </head>
 
 <body>
 
-<button id="theme-toggle" style="position:fixed;top:20px;right:20px;padding:10px;">
-🌙
+<button id="theme-toggle"
+style="position: fixed; top: 20px; right: 20px; padding: 10px 15px;
+background: #333; color: #fff; border: none; border-radius: 8px;
+cursor: pointer; z-index: 999;">
+🌙 Sombre
 </button>
 
 <header>
-    <div class="logo-title">
-        <img src="DTI.jpg" alt="logo">
-        <h1>DATECH INNOVA</h1>
-    </div>
+<div class="logo-title">
+<img src="DTI.jpg" alt="Logo Datech Innova">
+<h1>DATECH INNOVA</h1>
+</div>
+
+<nav>
+<a href="#">Accueil</a>
+<a href="#produit">Produit</a>
+<a href="#apropos">À propos</a>
+<a href="#temoignages">Témoignages</a>
+<a href="#partenaires">Partenaires</a>
+<a href="#faq">FAQ</a>
+<a href="#contact">Contact</a>
+</nav>
 </header>
 
 <section class="hero">
-    <h2>Innovation pour sauver des vies</h2>
-    <p>Incubateurs néonatals intelligents pour la surveillance et la sécurité des nouveau-nés.</p>
 
-    <div class="slider-container">
-        <div class="slider">
-            <img src="INCUBATEUR BON1.png">
-            <img src="bb.png">
-            <img src="app.png">
-            <img src="remise.jpg">
-            <img src="minst.jpg">
-            <img src="assise.jpg">
+<h2>Innovation pour sauver des vies</h2>
 
-            <img src="INCUBATEUR BON1.png">
-            <img src="bb.png">
-            <img src="app.png">
-            <img src="remise.jpg">
-            <img src="minst.jpg">
-            <img src="assise.jpg">
-        </div>
-    </div>
+<p>
+Incubateurs néonatals intelligents offrant sécurité,
+confort et suivi en temps réel.
+</p>
+
+<div class="slider-container">
+<div class="slider">
+
+<img src="INCUBATEUR BON1.png" alt="Incubateur">
+<img src="bb.png" alt="BB">
+<img src="app.png" alt="Application">
+<img src="remise.jpg" alt="Remise">
+<img src="minst.jpg" alt="Ministère">
+<img src="assise.jpg" alt="Assise">
+
+<img src="INCUBATEUR BON1.png" alt="Incubateur">
+<img src="bb.png" alt="BB">
+<img src="app.png" alt="Application">
+<img src="remise.jpg" alt="Remise">
+<img src="minst.jpg" alt="Ministère">
+<img src="assise.jpg" alt="Assise">
+
+</div>
+</div>
+
+</section>
+
+<section class="section" id="apropos">
+
+<h3>Qui sommes-nous ?</h3>
+
+<p>
+DATECH INNOVA développe des technologies médicales avancées
+pour améliorer la survie des nouveau-nés.
+</p>
+
 </section>
 
 <section class="section">
-    <h3>Qui sommes-nous ?</h3>
-    <p>
-        DATECH INNOVA développe des incubateurs intelligents pour réduire la mortalité néonatale.
-    </p>
+
+<h3>Notre équipe</h3>
+
+<div class="features">
+
+<div class="feature-box" style="text-align:center;">
+<img src="PDG.jpg"
+style="width:150px; border-radius:50%;">
+<h4>Dajora Floderma MOUYOMBO</h4>
+<p>Fondatrice & CEO</p>
+</div>
+
+<div class="feature-box" style="text-align:center;">
+<img src="TEBOUL.jpg"
+style="width:150px; border-radius:50%;">
+<h4>Teboul TIBOTA</h4>
+<p>Responsable technique</p>
+</div>
+
+<div class="feature-box" style="text-align:center;">
+<img src="Revaldy.jpg"
+style="width:150px; border-radius:50%;">
+<h4>Revaldy MOUYOMBO</h4>
+<p>Communication</p>
+</div>
+
+<div class="feature-box" style="text-align:center;">
+<img src="yann.jpg"
+style="width:150px; border-radius:50%;">
+<h4>Yann MAVOUNGOU</h4>
+<p>Supervision qualité</p>
+</div>
+
+</div>
+
 </section>
 
-<section class="section">
-    <h3>Équipe</h3>
+<section class="section" id="partenaires">
 
-    <div class="features">
+<h3>Nos partenaires</h3>
 
-        <div class="feature-box">
-            <img src="PDG.jpg" width="120">
-            <h4>Fondatrice</h4>
-        </div>
+<div class="features">
 
-        <div class="feature-box">
-            <img src="TEBOUL.jpg" width="120">
-            <h4>Technique</h4>
-        </div>
+<div class="feature-box">
+<img src="imex.jpg" style="width:100%;">
+</div>
 
-        <div class="feature-box">
-            <img src="Revaldy.jpg" width="120">
-            <h4>Communication</h4>
-        </div>
+<div class="feature-box">
+<img src="institution-sante.jpg" style="width:100%;">
+</div>
 
-        <div class="feature-box">
-            <img src="yann.jpg" width="120">
-            <h4>Qualité</h4>
-        </div>
+</div>
 
-    </div>
 </section>
 
-<section class="section">
-    <h3>Produit</h3>
-</section>
+<section class="section" id="social">
 
-<section class="section">
-    <h3>Contact</h3>
+<h3>Suivez-nous</h3>
+
+<div style="display:flex; justify-content:center; gap:20px;">
+
+<a href="#">
+<img src="fb.png" style="width:50px;">
+</a>
+
+<a href="#">
+<img src="ln.jpg" style="width:50px;">
+</a>
+
+<a href="#">
+<img src="inst.png" style="width:50px;">
+</a>
+
+<a href="#">
+<img src="whatsapp.png" style="width:50px;">
+</a>
+
+</div>
+
 </section>
 
 <footer>
-    © 2025 DATECH INNOVA
+© 2025 DATECH INNOVA – Tous droits réservés
 </footer>
 
 <script>
-const btn = document.getElementById("theme-toggle");
+const toggleBtn = document.getElementById("theme-toggle");
+const body = document.body;
 
-btn.onclick = () => {
-    document.body.classList.toggle("dark-mode");
-};
+if (localStorage.getItem("theme") === "dark") {
+body.classList.add("dark-mode");
+toggleBtn.textContent = "☀️ Clair";
+}
+
+toggleBtn.addEventListener("click", () => {
+
+body.classList.toggle("dark-mode");
+
+if (body.classList.contains("dark-mode")) {
+toggleBtn.textContent = "☀️ Clair";
+localStorage.setItem("theme", "dark");
+} else {
+toggleBtn.textContent = "🌙 Sombre";
+localStorage.setItem("theme", "light");
+}
+
+});
 </script>
 
 </body>
